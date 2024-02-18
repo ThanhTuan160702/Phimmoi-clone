@@ -1,0 +1,5 @@
+export { default as Header } from './Header/Header'
+export { default as Footer } from './Footer/Footer'
+export { default as Category } from './Modals/Category'
+export { default as Nation } from './Modals/Nation'
+export { default as RightContent } from './Content/RightContent'

@@ -22,7 +22,27 @@ const getAllActor = asyncHandle(async(req,res)=>{
     })
 })
 
+const getActor = asyncHandle(async(req,res)=>{
+    const { aid } = req.body
+    const response = await Actor.findById(aid)
+    return res.status(200).json({
+        success: response ? true : false,
+        mes: response ? response : "Something went wrong"
+    })
+})
+
+const deleteActor = asyncHandle(async(req,res)=>{
+    const { aid } = req.body
+    const response = await Actor.findByIdAndDelete(aid)
+    return res.status(200).json({
+        success: response ? true : false,
+        mes: response ? "Deleted successfully !" : "Something went wrong"
+    })
+})
+
 module.exports = {
     createActor,
-    getAllActor
+    getAllActor,
+    getActor,
+    deleteActor
 }

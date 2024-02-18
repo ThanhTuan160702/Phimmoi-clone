@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var movieSchema = new mongoose.Schema({
+var movieSingleSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -11,8 +11,7 @@ var movieSchema = new mongoose.Schema({
         required:true
     },
     date:{
-        type: Date,
-        required:true
+        type: Date
     },
     time:{
         type:String,
@@ -41,15 +40,17 @@ var movieSchema = new mongoose.Schema({
         }
     ],
     image:{
-        type:String,
-        required:true,
+        type:String
     },
-    format:{
-        type:Boolean
+    trailer:{
+        type:String
+    },
+    movieLeOrBo:{
+        type:String
     }
 },{
     timestamps: true
 });
 
 //Export the model
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('MovieSingle', movieSingleSchema);
