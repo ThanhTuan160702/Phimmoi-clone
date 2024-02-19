@@ -39,7 +39,7 @@ const RightContent = () => {
         <span className='absolute text-white top-[75px] left-[5px] text-base'>Hắc Kim Cổ Điện</span>
         <span className='absolute text-white top-[95px] left-[5px] text-xs'>2023</span>
       </div>
-      <div className='flex bg-[#0e0e0e] hover:bg-black'>
+      <div className='flex bg-[#0e0e0e] hover:bg-black cursor-pointer'>
         <div>
           <img src={image2} alt='image2' className='h-[100px] w-[85px]'/>
         </div>
@@ -54,7 +54,7 @@ const RightContent = () => {
           </div>
         </div>
       </div>
-      <div className='flex bg-[#0e0e0e] mt-3 hover:bg-black'>
+      <div className='flex bg-[#0e0e0e] mt-3 hover:bg-black cursor-pointer'>
         <div>
           <img src={image3} alt='image2' className='h-[100px] w-[85px]'/>
         </div>
@@ -69,7 +69,7 @@ const RightContent = () => {
           </div>
         </div>
       </div>
-      <div className='flex bg-[#0e0e0e] mt-3 hover:bg-black'>
+      <div className='flex bg-[#0e0e0e] mt-3 hover:bg-black cursor-pointer'>
         <div>
           <img src={image4} alt='image2' className='h-[100px] w-[85px]'/>
         </div>
@@ -84,7 +84,7 @@ const RightContent = () => {
           </div>
         </div>
       </div>
-      <div className='flex bg-[#0e0e0e] mt-3 hover:bg-black'>
+      <div className='flex bg-[#0e0e0e] mt-3 hover:bg-black cursor-pointer'>
         <div>
           <img src={image5} alt='image2' className='h-[100px] w-[85px]'/>
         </div>

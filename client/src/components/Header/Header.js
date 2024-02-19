@@ -30,10 +30,10 @@ const Header = () => {
                 </div>
             </div>
         </div>
-        <div onMouseEnter={() => setIsHoverCategory(true)} onMouseLeave={() => setIsHoverCategory(false)} className='w-[550px] absolute right-[290px]'>
+        <div onMouseEnter={() => setIsHoverCategory(true)} onMouseLeave={() => setIsHoverCategory(false)} className='w-[550px] absolute right-[290px] z-50'>
             {isHoverCategory && <Category/>}
         </div>
-        <div onMouseEnter={() => setIsHoverNation(true)} onMouseLeave={() => setIsHoverNation(false)} className='w-[550px] absolute right-[160px]'>
+        <div onMouseEnter={() => setIsHoverNation(true)} onMouseLeave={() => setIsHoverNation(false)} className='w-[550px] absolute right-[160px] z-50'>
             {isHoverNation && <Nation/>}
         </div>
     </div>

@@ -31,4 +31,14 @@ input:focus {
   .two-thirds-image {
     clip-path: polygon(0 0, 100% 0, 100% 70%, 0 70%);
   }
+
+  .hover-effect {
+    transition: transform 0.3s ease;
+  }
   
+  .hover-effect:hover {
+    transform: scale(1.05);
+  }
+
+
+

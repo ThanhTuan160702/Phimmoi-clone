@@ -87,9 +87,9 @@ export const category = [
         id: 22,
         text: 'TV Shows'
     },
-  ]
+]
 
-  export const nation = [
+export const nation = [
     {
       id: 1,
       text: 'Phim Âu Mỹ'
@@ -134,4 +134,88 @@ export const category = [
         id: 11,
         text: 'Phim Philippines'
     }
-  ]
+]
+
+export const slideTest = [
+    {
+        id: 1,
+        text: 'Cửa Hàng Ánh Sáng',
+        year: 2023,
+        image: 'https://image.tmdb.org/t/p/w500/gn5K4RwFEp6VMPoInmrWHESEHUV.jpg'
+    },
+    {
+        id: 2,
+        text: 'Chó Săn Địa Ngục',
+        year: 2024,
+        image: 'https://image.tmdb.org/t/p/w500/mhKQ5ntqlXyck0TWh1pCpn42aAx.jpg'
+    },
+    {
+        id: 3,
+        text: 'Quán Ăn Quỷ Đói',
+        year: 2023,
+        image: 'https://image.tmdb.org/t/p/w500/nHVzEq0mP0MaxmFLMXHkaQTKM05.jpg'
+    },
+    {
+        id: 4,
+        text: 'Ác Nữ',
+        year: 2023,
+        image: 'https://image.tmdb.org/t/p/w500/2SgUjDH5WaSwSyWvezvy9bSoIQ4.jpg'
+    },
+    {
+        id: 5,
+        text: 'Họa Giang Hồ: Bất Lương Soái',
+        year: 2024,
+        image: 'https://image.tmdb.org/t/p/w500/njeTwKsDYsAthDKggmzvfDRio9H.jpg'
+    },
+    {
+        id: 6,
+        text: 'Phong Thần: Họa Thương',
+        year: 2023,
+        image: 'https://image.tmdb.org/t/p/w500/z3hBxj5kFoFZNl3Cn8BiUZQq3qW.jpg'
+    },
+    {
+        id: 7,
+        text: 'Trò Chơi Bầy Cừu',
+        year: 2023,
+        image: 'https://image.tmdb.org/t/p/w500/lFPIv1fsVBq8NPcSK2gaj4BcQuq.jpg'
+    }
+]
+
+export const slideBodyTest = [
+    {
+        id: 1,
+        text: 'Thế Giới Ma Quái 2',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2020/12/Sweet-Home-2.jpg'
+    },
+    {
+        id: 2,
+        text: 'Loki: Phần 2',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/10/Loki.jpg'
+    },
+    {
+        id: 3,
+        text: 'Đảo Hải Tặc',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/08/One-Piece.jpg'
+    },
+    {
+        id: 4,
+        text: 'John Wick: Phần 4',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/03/John-Wick-4.jpg'
+    },
+    {
+        id: 5,
+        text: 'Người Nổi Tiếng',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/06/nguoi-noi-tieng.jpg'
+    },
+    {
+        id: 6,
+        text: 'Vụng Trộm Không Thể Giấu',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/06/vung-trom-khong-the-giau-phim.jpg'
+    }
+]

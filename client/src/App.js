@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 import path from './utils/path';
-import { CategoryMovie, Home, Movie, NationMovie, Public, Year } from './pages/public/index';
+import { CategoryMovie, Home, Movie, MovieLeOrBo, NationMovie, Public, Year } from './pages/public/index';
 
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path={path.PUBLIC} element={<Public/>}>
           <Route path={path.HOME} element={<Home/>}/>
+          <Route path={path.MovieLeOrBo} element={<MovieLeOrBo/>}/>
           <Route path={path.Movie} element={<Movie/>}/>
           <Route path={path.Nation} element={<NationMovie/>}/>
           <Route path={path.Category} element={<CategoryMovie/>}/>

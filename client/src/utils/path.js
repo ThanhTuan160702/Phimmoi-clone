@@ -2,10 +2,11 @@ const path = {
     PUBLIC: '/',
     HOME: '',
     ALL: '*',
-    Movie: ':movie',
-    Category: 'the-loai/:category',
-    Nation: 'quoc-gia/:nation',
-    Year: 'nam-phat-hanh/:year'
+    MovieLeOrBo: ':movieLeOrBoParams',
+    Category: 'the-loai/:categoryParams',
+    Nation: 'quoc-gia/:nationParams',
+    Year: 'nam-phat-hanh/:yearParams',
+    Movie: ':movieLeOrBo/:movie'
 }
 
 export default path

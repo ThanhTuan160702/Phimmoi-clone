@@ -1,6 +1,7 @@
 export { default as Public } from './Public'
-export { default as Movie } from './Movie'
+export { default as MovieLeOrBo } from './MovieLeOrBo'
 export { default as NationMovie } from './NationMovie'
 export { default as CategoryMovie } from './CategoryMovie'
 export { default as Year } from './Year'
 export { default as Home } from './Home'
+export { default as Movie } from './Movie'
