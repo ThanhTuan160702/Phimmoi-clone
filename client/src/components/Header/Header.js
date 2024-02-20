@@ -4,6 +4,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { Category, Nation} from '../index';
 import { useNavigate } from 'react-router-dom'
 import path from '../../utils/path'
+import Icon from '../../assets/film.png'
 const Header = () => {
 
     const [isHoverCategory, setIsHoverCategory] = useState(false);
@@ -15,7 +16,10 @@ const Header = () => {
         <div className='bg-[#151414] w-full flex justify-center items-center text-center h-[70px]'>
             <div className='w-main flex justify-between h-full items-center'>
                 <div className='h-full text-[#cbcbcb] flex justify-center items-center gap-10'>
-                    <span className='bg-[#212020] flex items-center justify-center h-full w-[190px] cursor-pointer' onClick={() => navigate(`${path.HOME}`)}>Icon</span>
+                    <div className='w-[190px] bg-[#212020] cursor-pointer h-full flex flex-col items-center justify-center'>
+                        <img src={Icon} alt='icon' className='w-[50px]' onClick={() => navigate(`${path.HOME}`)}/>
+                        <span>Phimcu</span>
+                    </div>
                     <span className='h-full flex justify-center items-center cursor-pointer hover:text-blue-700' onClick={() => navigate(`${path.HOME}`)}>Phimmoi</span>
                     <span className='h-full flex justify-center items-center cursor-pointer hover:text-blue-700' onClick={() => navigate(`/phim-le`)}>Phim lẻ</span>
                     <span className='h-full flex justify-center items-center cursor-pointer hover:text-blue-700' onClick={() => navigate(`/phim-bo`)}>Phim bộ</span>

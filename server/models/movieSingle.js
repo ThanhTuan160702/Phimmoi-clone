@@ -34,11 +34,9 @@ var movieSingleSchema = new mongoose.Schema({
             actor: {type: mongoose.Types.ObjectId, ref: 'Actor'}
         }
     ],
-    category:[
-        {
-            category: {type: mongoose.Types.ObjectId, ref: 'Category'}
-        }
-    ],
+    category:{
+        type: String
+    },
     image:{
         type:String
     },
@@ -46,6 +44,9 @@ var movieSingleSchema = new mongoose.Schema({
         type:String
     },
     movieLeOrBo:{
+        type:String
+    },
+    audioOrSubtitle:{
         type:String
     }
 },{

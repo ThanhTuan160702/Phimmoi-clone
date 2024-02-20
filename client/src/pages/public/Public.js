@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 const Public = () => {
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className='w-full flex flex-col items-center h-[2200px]'>
         <Header/>
         <div className='w-main flex items-center flex-col bg-[#151414]'>
             <div className='bg-[#000000] w-full border border-yellow-400 p-2 flex items-center justify-center'>

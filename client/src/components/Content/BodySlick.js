@@ -1,7 +1,6 @@
 import React from 'react'
 import Slider from "react-slick";
 import { slideBodyTest } from '../../utils/contants';
-import { FaCaretRight, FaCaretLeft } from "react-icons/fa6";
 
 
 const BodySlick = () => {
@@ -21,7 +20,7 @@ const BodySlick = () => {
         <div key={el.id} className='hover-effect relative flex flex-col px-3'>
           <img className='cursor-pointer' src={el.image} alt='img'/>      
           <span className='text-white text-sm line-clamp-1 mt-2'>{el.text}</span>
-          <span className='text-sm'>{el.year}</span>
+          <span className='text-sm text-[#cbcbcb]'>{el.year}</span>
         </div>
       ))}
     </Slider>
