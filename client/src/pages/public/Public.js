@@ -8,9 +8,9 @@ const Public = () => {
         <Header/>
         <div className='w-main flex items-center flex-col bg-[#151414]'>
             <div className='bg-[#000000] w-full border border-yellow-400 p-2 flex items-center justify-center'>
-              <span className='text-[#cbcbcb]'>Web Phim TuanFlix</span>
+              <span className='text-[#cbcbcb]'>Web Phimmoi-clone</span>
             </div>
-            <div className='flex items-center justify-center w-full h-[1700px]'>
+            <div className='flex items-center justify-center w-full '>
               <div className='w-[70%] h-full flex justify-center'>
                 <Outlet/>
               </div>

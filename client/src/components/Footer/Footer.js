@@ -5,8 +5,11 @@ import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { IoIosArrowUp } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+
+  const navigate = useNavigate()
 
   const onTop = () => {
     window.scrollTo({
@@ -21,17 +24,17 @@ const Footer = () => {
         <div className='w-[40%] flex flex-col'>
           <div className='flex flex-col'>
             <img src={Icon} alt='img' className='w-[60px]'/>
-            <span className='text-[#cbcbcb]'>PhimCu</span>
+            <span className='text-[#cbcbcb]'>Phimmoi-clone</span>
           </div>
-          <span className='text-sm max-w-[390px] text-[#cbcbcb]'>Phimcu - Trang xem phim Online với giao diện mới được bố trí và thiết kế thân thiện với người dùng. Nguồn phim được tổng hợp từ các website lớn với đa dạng các đầu phim và thể loại vô cùng phong phú.</span>
+          <span className='text-sm max-w-[390px] text-[#cbcbcb]'>Phimmoi-clone - Trang xem phim Online với giao diện mới được bố trí và thiết kế thân thiện với người dùng. Nguồn phim được tổng hợp từ các website lớn với đa dạng các đầu phim và thể loại vô cùng phong phú.</span>
         </div>
         <div className='w-[20%] flex flex-col gap-1'>
           <span className='mb-1 text-base text-[#cbcbcb]'>Phim mới</span>
-          <span className='text-blue-700 text-sm'>Phim Khoa Học</span>
-          <span className='text-blue-700 text-sm'>Phim Kinh Dị</span>
-          <span className='text-blue-700 text-sm'>Phim Chiếu Rạp</span>
-          <span className='text-blue-700 text-sm'>Phim Hình Sự</span>
-          <span className='text-blue-700 text-sm'>Phim Hành Động</span>
+          <span onClick={() => navigate(`the-loai/phim-khoa-hoc`)} className='text-blue-700 text-sm cursor-pointer'>Phim Khoa Học</span>
+          <span onClick={() => navigate(`the-loai/phim-kinh-di`)} className='text-blue-700 text-sm cursor-pointer'>Phim Kinh Dị</span>
+          <span onClick={() => navigate(`the-loai/phim-phieu-luu`)} className='text-blue-700 text-sm cursor-pointer'>Phim Phiêu Lưu</span>
+          <span onClick={() => navigate(`the-loai/phim-hinh-su`)} className='text-blue-700 text-sm cursor-pointer'>Phim Hình Sự</span>
+          <span onClick={() => navigate(`the-loai/phim-hanh-dong`)} className='text-blue-700 text-sm cursor-pointer'>Phim Hành Động</span>
         </div>
         <div className='w-[20%] flex flex-col gap-1'>
           <span className='mb-1 text-base text-[#cbcbcb]'>Phim hay</span>
@@ -51,7 +54,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='flex justify-between items-center py-3'>
-        <div className='text-[#cbcbcb]'>© Phimcu</div>
+        <div className='text-[#cbcbcb]'>© Phimmoi-clone</div>
         <div className='flex items-center gap-4'>
           <FaFacebookF size={20} className='cursor-pointer text-white hover:text-blue-500'/>
           <FaInstagram size={20} className='cursor-pointer text-white hover:text-blue-500'/>

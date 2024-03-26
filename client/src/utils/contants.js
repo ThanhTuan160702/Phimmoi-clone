@@ -219,3 +219,88 @@ export const slideBodyTest = [
         image: 'https://phimmoiiii.net/wp-content/uploads/2023/06/vung-trom-khong-the-giau-phim.jpg'
     }
 ]
+
+export const actorTest = [
+    {
+        id: 1,
+        nameReal: 'Louis Mandylor',
+        nameFake: 'Loreno',
+        image: 'https://image.tmdb.org/t/p/w92/skvNBR83wxjbFj6XuLxWAhCZTmh.jpg'
+    },
+    {
+        id: 2,
+        nameReal: 'Vithaya Pansringarm',
+        nameFake: 'Cetan',
+        image: 'https://image.tmdb.org/t/p/w92/skvNBR83wxjbFj6XuLxWAhCZTmh.jpg'
+    },
+    {
+        id: 3,
+        nameReal: 'Van Quattro',
+        nameFake: 'Paul',
+        image: 'https://image.tmdb.org/t/p/w92/skvNBR83wxjbFj6XuLxWAhCZTmh.jpg'
+    },
+    {
+        id: 4,
+        nameReal: 'Panya Yimmumphai',
+        nameFake: 'Tar',
+        image: 'https://image.tmdb.org/t/p/w92/skvNBR83wxjbFj6XuLxWAhCZTmh.jpg'
+    }
+]
+
+export const rightContentTest = [
+    {
+        id: 1,
+        text: 'Thế Giới Ma Quái 2',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2020/12/Sweet-Home-2.jpg'
+    },
+    {
+        id: 2,
+        text: 'Loki: Phần 2',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/10/Loki.jpg'
+    },
+    {
+        id: 3,
+        text: 'Đảo Hải Tặc',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/08/One-Piece.jpg'
+    },
+    {
+        id: 4,
+        text: 'John Wick: Phần 4',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/03/John-Wick-4.jpg'
+    },
+    {
+        id: 5,
+        text: 'Người Nổi Tiếng',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/06/nguoi-noi-tieng.jpg'
+    },
+    {
+        id: 6,
+        text: 'Vụng Trộm Không Thể Giấu',
+        year: 2023,
+        image: 'https://phimmoiiii.net/wp-content/uploads/2023/06/vung-trom-khong-the-giau-phim.jpg'
+    }
+]
+
+export const AdminSiderbar = [
+    {
+        id: 1,
+        text: 'Thêm phim'
+    },
+    {
+        id: 2,
+        text: 'Phim bộ'
+    },
+    {
+        id: 3,
+        text: 'Phim lẻ'
+    },
+    {
+        id: 4,
+        text: 'Các tập phim'
+    },
+]

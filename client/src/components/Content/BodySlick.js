@@ -1,9 +1,11 @@
 import React from 'react'
 import Slider from "react-slick";
 import { slideBodyTest } from '../../utils/contants';
+import { formatSlug, formatYear } from '../../utils/helper';
+import { useNavigate } from 'react-router-dom';
 
 
-const BodySlick = () => {
+const BodySlick = ({data}) => {
 
     const settings = {
         arrows: true,
@@ -14,13 +16,38 @@ const BodySlick = () => {
         slidesToScroll: 1
       };
 
+
+      const navigate = useNavigate()
+
+  const handleOnMouseDown = (el) => {
+    let isSwiping = false;
+
+    const handleOnMouseUp = () => {
+      if (!isSwiping) {
+        navigate(`/${formatSlug(el.movieSingleOrSeries)}/${formatSlug(el.name)}`);
+      }
+    };
+
+    const handleOnMouseMove = () => {
+      isSwiping = true;
+    };
+
+    document.addEventListener('mouseup', handleOnMouseUp);
+    document.addEventListener('mousemove', handleOnMouseMove);
+
+    return () => {
+      document.removeEventListener('mouseup', handleOnMouseUp);
+      document.removeEventListener('mousemove', handleOnMouseMove);
+    };
+  };
+
   return (
     <Slider {...settings}>
-      {slideBodyTest.map(el=>(
-        <div key={el.id} className='hover-effect relative flex flex-col px-3'>
-          <img className='cursor-pointer' src={el.image} alt='img'/>      
-          <span className='text-white text-sm line-clamp-1 mt-2'>{el.text}</span>
-          <span className='text-sm text-[#cbcbcb]'>{el.year}</span>
+      {data?.map(el=>(
+        <div onMouseDown={() => handleOnMouseDown(el)} key={el.id} className='hover-effect relative flex flex-col px-3'>
+          <img className='cursor-pointer' src={el.imageThumbnail} alt='img'/>      
+          <span className='text-white text-sm line-clamp-1 mt-2'>{el.name}</span>
+          <span className='text-sm text-[#cbcbcb]'>{formatYear(el.date)}</span>
         </div>
       ))}
     </Slider>
