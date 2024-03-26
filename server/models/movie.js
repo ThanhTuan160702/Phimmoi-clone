@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var movieSingleSchema = new mongoose.Schema({
+var movieSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -10,16 +10,18 @@ var movieSingleSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    slug:{
+        type:String,
+        unique: true
+    },
     date:{
         type: Date
     },
     time:{
-        type:String,
-        required:true,
+        type:String
     },
     nation:{
-        type:String,
-        required:true,
+        type:String
     },
     description:{
         type:String,
@@ -29,24 +31,26 @@ var movieSingleSchema = new mongoose.Schema({
         type:Number,
         required:true,
     },
-    actor:[
-        {
-            actor: {type: mongoose.Types.ObjectId, ref: 'Actor'}
-        }
-    ],
+    numberOfEpisode:{
+        type:Number,
+        default: 0
+    },
     category:{
         type: String
     },
-    image:{
+    imageThumbnail:{
         type:String
     },
-    trailer:{
+    imageOther:{
         type:String
     },
-    movieLeOrBo:{
+    video:{
         type:String
     },
-    audioOrSubtitle:{
+    movieSingleOrSeries:{
+        type:String
+    },
+    quality:{
         type:String
     }
 },{
@@ -54,4 +58,4 @@ var movieSingleSchema = new mongoose.Schema({
 });
 
 //Export the model
-module.exports = mongoose.model('MovieSingle', movieSingleSchema);
+module.exports = mongoose.model('Movie', movieSchema);

@@ -9,12 +9,25 @@ cloudinary.config({
 });
 
 const storage = new CloudinaryStorage({
-  cloudinary,
-  allowedFormats: ['jpg', 'png','jpeg'],
-  params: {
-    folder: 'Phimmoi-clone'
+    cloudinary,
+    allowedFormats: ['jpg', 'png','jpeg'],
+    params: async (req, file) => {
+      // Xác định resource_type dựa trên loại tệp
+      let resource_type;
+      if (file.mimetype.startsWith('image')) {
+          resource_type = 'image';
+      } else if (file.mimetype.startsWith('video')) {
+          resource_type = 'video';
+      } else {
+          throw new Error('Invalid file type');
+      }
+
+      return {
+          folder: 'Phimmoi-clone',
+          resource_type: resource_type
+      };
   }
-});
+  });
 
 const uploadCloud = multer({ storage });
 

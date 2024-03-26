@@ -3,7 +3,6 @@ const asyncHandle = require('express-async-handler')
 
 const createActor = asyncHandle(async(req,res)=>{
     const { nameReal,nameFake ,image, position } = req.body
-    console.log(req.body)
     if(!nameReal || !nameFake || !position){
         throw new Error('Missing input')
     }

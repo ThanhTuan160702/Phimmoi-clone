@@ -9,7 +9,6 @@ const dbConnect = async () => {
         }else{
             console.log('fail')
         }
-        
     } catch (error) {
         console.log(error)
         throw new Error(error)
