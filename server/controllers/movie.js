@@ -8,18 +8,18 @@ const createMovie = asyncHandle(async(req,res)=>{
     if (missingFields.length > 0) {
         throw new Error(`Missing input: ${missingFields.join(', ')}`);
     }
-    if(req.files){
+    if (req.files) {
         const fieldNames = Object.keys(req.files);
-        fieldNames.forEach(el => {
-            const file = req.files[el]
-            if(file[0].fieldname === 'video'){
-                req.body.video = file[0].path
-            }else if(file[0].fieldname === 'imageOther'){
-                req.body.imageOther = file[0].path
-            }else{
-                req.body.imageThumbnail = file[0].path
+        fieldNames.forEach(fieldName => {
+            const file = req.files[fieldName];
+            if (fieldName === 'video') {
+                req.body.video = file[0].path;
+            } else if (fieldName === 'imageOther') {
+                req.body.imageOther = file[0].path;
+            } else {
+                req.body.imageThumbnail = file[0].path;
             }
-        })
+        });
     }
     req.body.slug = slugify(req.body.name, {
         lower: true,
@@ -79,8 +79,54 @@ const getMovie = asyncHandle(async(req,res)=>{
     })
 })
 
+const updateMovie = asyncHandle(async(req, res)=> {
+    const { mid } = req.params
+    const movie = await Movie.findById(mid);
+    Object.entries(req.body).forEach(([key, value]) => {
+        if(value === '' || value === 'null'){
+            delete req.body[key]
+        }
+    });
+    if(req.body.name && req.body.name !== movie.name){
+        req.body.slug = slugify(req.body.name, {
+            lower: true,
+            replacement: '-',
+            locale: 'vi',
+        });
+        const response = await Movie.findOne({slug: req.body.slug})
+        if(response && response._id.toString() !== mid){
+            throw new Error(`Name is already !`);
+        }
+    }
+    if(req.files){
+        const fieldNames = Object.keys(req.files);
+        fieldNames.forEach(fieldName => {
+            const file = req.files[fieldName];
+            if (fieldName === 'video') {
+                req.body.video = file[0].path;
+            } else if (fieldName === 'imageOther') {
+                req.body.imageOther = file[0].path;
+            } else {
+                req.body.imageThumbnail = file[0].path;
+            }
+        });
+    }
+    if(req.body.name){
+        req.body.slug = slugify(req.body.name, {
+            lower: true,
+            replacement: '-',
+            locale: 'vi',
+        });
+    }
+    const response = await Movie.findByIdAndUpdate(mid, req.body, {new: true})
+    return res.status(200).json({
+        success: response ? true : false,
+        mes: response ? "Update is successfully" : "Something went wrong"
+    })
+})
+
 const deleteMovie = asyncHandle(async(req,res)=>{
-    const { mid } = req.body
+    const { mid } = req.params
     const response = await Movie.findByIdAndDelete(mid)
     return res.status(200).json({
         success: response ? true : false,
@@ -92,5 +138,6 @@ module.exports = {
     createMovie,
     getAllMovie,
     deleteMovie,
-    getMovie
+    getMovie,
+    updateMovie
 }
