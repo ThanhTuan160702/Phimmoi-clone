@@ -5,11 +5,11 @@ const connectdb = require("../config/connectdb")
 const initRoutes = require("../routes")
 const cookieParser = require('cookie-parser')
 
-const port = process.env.PORT || 9999
-
 const app = express()
 connectdb()
 app.use(cookieParser())
+const port = process.env.PORT || 9999
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cors())
