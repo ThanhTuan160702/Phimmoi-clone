@@ -21,3 +21,38 @@ export const apiAllMovieEpisode = (data) => axios({
     method: 'get',
     params: data
 })
+
+export const apiDeleteMovieEpisode = (eid,data) => axios({
+    url: `/movieEpisode/deleteEpisode/${eid}`,
+    method: 'delete',
+    data
+})
+
+export const apiDeleteMovie = (mid) => axios({
+    url: `/movie/deleteMovie/${mid}`,
+    method: 'delete'
+})
+
+export const apiCreateMovie = (data) => axios({
+    url: `/movie/createMovie/`,
+    method: 'post',
+    data
+})
+
+export const apiCreateEpisode = (data) => axios({
+    url: `/movieEpisode/createMovieEpisode/`,
+    method: 'post',
+    data
+})
+
+export const apiUpdateMovie = (mid,data) => axios({
+    url: `/movie/updateMovie/${mid}`,
+    method: 'post',
+    data
+})
+
+export const apiUpdateEpisode = (eid,data) => axios({
+    url: `/movieEpisode/updateEpisode/${eid}`,
+    method: 'post',
+    data
+})

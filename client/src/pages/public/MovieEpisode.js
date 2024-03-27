@@ -20,7 +20,6 @@ const MovieEpisode = () => {
   const [movieInfomation, setMovieInfomation] = useState(null)
   const [loading, setLoading] = useState(true)
   const [episodes, setEpisodes] = useState([])
-  const [video, setVideo] = useState(null)
   const navigate = useNavigate()
   const [nowEpisode, setNowEpisode] = useState('')
 

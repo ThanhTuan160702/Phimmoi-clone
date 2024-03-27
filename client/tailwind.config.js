@@ -24,7 +24,8 @@ module.exports = {
       },
       colors: {
         main: '#ee3131',
-        opacity: 'rgba(0, 0, 0, 0.9)'
+        opacity: 'rgba(0, 0, 0, 0.9)',
+        opacityLoading: 'rgba(0, 0, 0, 0.4)'
       },
       keyframes: {
       },

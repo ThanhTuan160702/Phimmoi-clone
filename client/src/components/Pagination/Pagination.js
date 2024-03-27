@@ -2,20 +2,13 @@ import React,{ memo } from 'react'
 import { IoMdArrowDropright, IoMdArrowDropleft } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 
-const Pagination = ({currentNow, TotalPage, handleChangePage, path, search, admin}) => {
+const Pagination = ({currentNow, TotalPage, handleChangePage, path, search}) => {
     const navigate = useNavigate()
     const pages = []
-    for (let index = 1; index <= TotalPage; index++) {
-        if(TotalPage < 6){
-            pages.push(index)
-        }else if(TotalPage >= 6){
-            if(index < Number(currentNow) + 5){
-                pages.push(index)
-                if(currentNow > 1 && currentNow === pages.length - 4){
-                    pages.shift()
-                }
-            }
-        }
+    const firstPage = currentNow - 2 > 0 ? currentNow - 2 : 1
+    const lastPage = firstPage + 4 <= TotalPage ? firstPage + 4 : TotalPage
+    for (let index = firstPage; index <= lastPage; index++) {
+        pages.push(index)
     }
   return (
     <div className='flex gap-2 text-white'>

@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import path from './utils/path';
-import { AddMovie, Admin, AdminMovieEpisode, AdminMovieSeries, AdminMovieSingle } from './pages/admin/index'
+import { AddEpisode, AddMovie, Admin, AdminMovieEpisode, AdminMovieSeries, AdminMovieSingle } from './pages/admin/index'
 import { CategoryMovie, Home, MovieEpisode, MovieSeries, MovieSingle, MovieSingleOrSeries, NationMovie, Public, Year} from './pages/public/index';
-
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
 
   return (
     <div className="font-main relative bg-main">
+      <ToastContainer/>
       <Routes>
         <Route path={path.PUBLIC} element={<Public/>}>
           <Route path={path.HOME} element={<Home/>}/>

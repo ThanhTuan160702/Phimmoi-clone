@@ -1,43 +1,39 @@
 import React, { useState } from 'react'
-import { apiCreateMovie } from '../../apis/movie'
+import { apiCreateMovie, apiUpdateMovie } from '../../apis/movie'
 import Swal from 'sweetalert2'
-import { FadeLoader } from 'react-spinners'
 import { toast } from 'react-toastify'
+import { FadeLoader } from 'react-spinners'
 
-const AddMovie = () => {
+const UpdateMovie = ({data, cancel}) => {
 
   const [loading, setLoading] = useState(false)
-  
+
   const [payload, setPayload] = useState({
-    name: '',
-    nameEng: '',
-    nation: '',
-    quality: '',
-    star: '',
-    numberOfEpisode: 0,
-    movieSingleOrSeries: '',
-    date: '',
-    description: '',
-    category: '',
+    name: data?.name,
+    nameEng: data?.nameEng,
+    nation: data?.nation,
+    quality: data?.quality,
+    star: data?.star,
+    numberOfEpisode: data?.numberOfEpisode,
+    movieSingleOrSeries: data?.movieSingleOrSeries,
+    date: data?.date,
+    description: data?.description,
+    category: data?.category,
     video: null,
     imageThumbnail: null,
     imageOther: null
   })
 
-  const handleAddMovie = async() => {
-    if (payload.name === '' || payload.nameEng === '' || payload.nation === '' || payload.quality === '' || payload.star === '' || payload.movieSingleOrSeries === '' || payload.date === '' || payload.description === '' || payload.category === '' || payload.video === null || payload.imageThumbnail === null || payload.imageOther === null) {
-      Swal.fire('Oops!', 'Missing Input','error')
-    } else {
-      const createMovie = {...payload}
+  const handleUpdateMovie = async() => {
+      const updateMovie = {...payload}
       const formData = new FormData()
-      for(let i of Object.entries(createMovie)){
+      for(let i of Object.entries(updateMovie)){
         formData.append(i[0], i[1])
       }
       setLoading(true)
-      await apiCreateMovie(formData)
+      await apiUpdateMovie(data._id,formData)
       setLoading(false)
-      toast.success('Thêm thành công')
-    }
+      toast.success('Cập nhật thành công')
   }
 
   const handleVideoFileChange = (event) => {
@@ -46,12 +42,12 @@ const AddMovie = () => {
   };
 
   return (
-    <div className='p-8 relative'>
+    <div className='p-8 bg-gray-300 h-screen relative'>
       {loading && 
       <div className='absolute flex justify-center items-center inset-0 min-h-screen bg-opacityLoading'>
         <FadeLoader color='red'/>
       </div>}
-      <h1 className='font-bold text-4xl mb-1'>Thêm phim</h1>
+      <h1 className='font-bold text-4xl mb-1'>Cập nhật phim</h1>
       <div className='flex flex-col gap-5'>
         <div className='flex w-full gap-3'>
           <div className='flex flex-col w-full'>
@@ -110,10 +106,11 @@ const AddMovie = () => {
             <label className='font-bold text-xl'>Số tập</label>
             <input 
             value={payload.numberOfEpisode} 
+            name='numberOfEpisode'
             style={{ caretColor: 'black' }}
-            className='p-1 border border-black'
+            className='p-1 border'
             type='number'
-            disabled
+            onChange={(el) => setPayload(prev => ({...prev,[el.target.name]: el.target.value}))}
             />
           </div>
           <div className='flex flex-col w-full'>
@@ -187,11 +184,12 @@ const AddMovie = () => {
           </div>
         </div>
       </div>
-      <div onClick={() => handleAddMovie()} className='w-full flex justify-end mt-3'>
-        <button className='p-3 bg-red-500 border'>Thêm</button>
+      <div className='w-full flex justify-end mt-3'>
+        <button  onClick={() => cancel()} className='p-3 bg-red-500 border'>Hủy</button>
+        <button  onClick={() => handleUpdateMovie()} className='p-3 bg-blue-500 border'>Cập nhật</button>
       </div>
     </div>
   )
 }
 
-export default AddMovie
+export default UpdateMovie

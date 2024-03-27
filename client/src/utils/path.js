@@ -22,6 +22,9 @@ const path = {
     AdminMovieSinglePage:'phim-le/page/:pageNumber',
     AdminMovieSeriesPage:'phim-bo/page/:pageNumber',
     AddMovie:'them-phim',
+    AddEpisode: 'them-tap-phim',
+    UpdateEpisode: 'cap-nhat-tap-phim',
+    UpdateMovie: 'cap-nhat-phim',
     AdminMovieEpisode: 'cac-tap-phim',
     AdminMovieEpisodePage:'cac-tap-phim/page/:pageNumber',
 }
