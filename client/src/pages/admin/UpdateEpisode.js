@@ -17,6 +17,8 @@ const UpdateEpisode = ({data, cancel}) => {
   const handleAddEpisode = async() => {
     if(payload.episode === '' || payload.video === null){
       Swal.fire('Oops!', 'Missing Input','error')
+    }else if(payload.video !== null){
+      Swal.fire('Oops!', 'Kích cỡ video quá lớn !','error')
     }else{
       const updateMovie = {...payload}
       const formData = new FormData()

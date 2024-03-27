@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const instance = axios.create({
-    baseURL: 'https://phimmoi-clone-be.vercel.app/api'
+    baseURL: process.env.REACT_APP_API_URL
   });
 
 // Add a request interceptor

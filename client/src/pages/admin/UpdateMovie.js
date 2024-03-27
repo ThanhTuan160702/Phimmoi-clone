@@ -25,6 +25,9 @@ const UpdateMovie = ({data, cancel}) => {
   })
 
   const handleUpdateMovie = async() => {
+    if(payload.video !== null){
+      Swal.fire('Oops!', 'Kích cỡ video quá lớn !','error')
+    }else{
       const updateMovie = {...payload}
       const formData = new FormData()
       for(let i of Object.entries(updateMovie)){
@@ -34,6 +37,7 @@ const UpdateMovie = ({data, cancel}) => {
       await apiUpdateMovie(data._id,formData)
       setLoading(false)
       toast.success('Cập nhật thành công')
+    }
   }
 
   const handleVideoFileChange = (event) => {

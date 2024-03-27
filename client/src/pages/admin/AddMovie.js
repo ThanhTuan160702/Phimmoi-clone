@@ -25,6 +25,11 @@ const AddMovie = () => {
   })
 
   const handleAddMovie = async() => {
+    if(payload.name === '' || payload.imageOther === '' || payload.imageThumbnail === '' || payload.category === '' || payload.description === '' || payload.date === '' || payload.movieSingleOrSeries === '' || payload.quality === '' || payload.nation === '' ||payload.nameEng === ''  || payload.star === '' || payload.video === null){
+      Swal.fire('Oops!', 'Missing Input','error')
+    }else if(payload.video !== null){
+      Swal.fire('Oops!', 'Kích cỡ video quá lớn !','error')
+    }else{
       const createMovie = {...payload}
       const formData = new FormData()
       for(let i of Object.entries(createMovie)){
@@ -34,6 +39,7 @@ const AddMovie = () => {
       await apiCreateMovie(formData)
       setLoading(false)
       toast.success('Thêm thành công')
+    }
   }
 
   const handleVideoFileChange = (event) => {
