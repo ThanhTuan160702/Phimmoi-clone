@@ -25,9 +25,6 @@ const AddMovie = () => {
   })
 
   const handleAddMovie = async() => {
-    if (payload.name === '' || payload.nameEng === '' || payload.nation === '' || payload.quality === '' || payload.star === '' || payload.movieSingleOrSeries === '' || payload.date === '' || payload.description === '' || payload.category === '' || payload.video === null || payload.imageThumbnail === null || payload.imageOther === null) {
-      Swal.fire('Oops!', 'Missing Input','error')
-    } else {
       const createMovie = {...payload}
       const formData = new FormData()
       for(let i of Object.entries(createMovie)){
@@ -37,7 +34,6 @@ const AddMovie = () => {
       await apiCreateMovie(formData)
       setLoading(false)
       toast.success('Thêm thành công')
-    }
   }
 
   const handleVideoFileChange = (event) => {

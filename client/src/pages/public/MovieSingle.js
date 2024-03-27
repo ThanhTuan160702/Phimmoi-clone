@@ -32,7 +32,6 @@ const MovieSingle = () => {
 
   const fetchData = async() => {
     const response = await apiMovie('Phim Lẻ',movieSingle)
-    console.log(response)
     if(response.success){
       setMovieInfomation(response.mes)
       setVideo(response.mes.video)

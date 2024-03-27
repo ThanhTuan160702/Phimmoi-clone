@@ -48,7 +48,7 @@ const NationMovie = () => {
           </div>
           <div className='flex flex-wrap justify-start'>
             {movies?.map(el=>(
-              <div onClick={() => navigate(`/${formatSlug(el.movieSingleOrSeries)}/${formatSlug(el.name)}`)} key={el.id} className='hover-effect relative flex flex-col px-3 w-[158px] mb-8'>
+              <div onClick={() => navigate(`/${formatSlug(el.movieSingleOrSeries)}/${formatSlug(el.name)}`)} key={el._id} className='hover-effect relative flex flex-col px-3 w-[158px] mb-8'>
                 <img className='cursor-pointer' src={el.imageThumbnail} alt='img'/>      
                 <span className='text-white text-sm line-clamp-1 mt-2'>{el.name}</span>
                 <span className='text-sm text-[#cbcbcb]'>{formatYear(el.date)}</span>

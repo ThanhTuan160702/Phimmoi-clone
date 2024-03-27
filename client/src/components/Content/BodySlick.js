@@ -44,7 +44,7 @@ const BodySlick = ({data}) => {
   return (
     <Slider {...settings}>
       {data?.map(el=>(
-        <div onMouseDown={() => handleOnMouseDown(el)} key={el.id} className='hover-effect relative flex flex-col px-3'>
+        <div onMouseDown={() => handleOnMouseDown(el)} key={el._id} className='hover-effect relative flex flex-col px-3'>
           <img className='cursor-pointer' src={el.imageThumbnail} alt='img'/>      
           <span className='text-white text-sm line-clamp-1 mt-2'>{el.name}</span>
           <span className='text-sm text-[#cbcbcb]'>{formatYear(el.date)}</span>

@@ -17,6 +17,7 @@ const Pagination = ({currentNow, TotalPage, handleChangePage, path, search}) => 
         </button>}
         {pages.length > 1 && pages.map((index)=>(
             <button 
+            key={index}
             onClick={() => {search ? navigate(`${path}${index}?s=${search}`) : navigate(`${path}${index}`)}} 
             className={Number(currentNow) === index ? 'border border-black text-sm bg-black text-blue-300' : 'border border-black text-sm text-gray-700'}
             >

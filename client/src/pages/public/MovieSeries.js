@@ -115,7 +115,7 @@ const MovieSeries = () => {
         <span className='text-white text-xl'>Chọn tập phim</span>
         <span className='text-gray-300 text-sm flex gap-3'>
           {episodes.map((el, index) => (
-            <span onClick={() => {handleEpisode(index+1)}} className='text-white text-base bg-gray-700 p-2 rounded-sm cursor-pointer hover:bg-blue-500'>{el}</span>
+            <span key={el._id} onClick={() => {handleEpisode(index+1)}} className='text-white text-base bg-gray-700 p-2 rounded-sm cursor-pointer hover:bg-blue-500'>{el}</span>
           ))}
         </span>
       </div>}

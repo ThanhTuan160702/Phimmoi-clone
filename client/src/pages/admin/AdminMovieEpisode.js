@@ -18,6 +18,7 @@ const AdminMovieEpisode = () => {
   const [editEpisode, setEditEpisode] = useState(false)
   const [search, setSearch] = useState('')
   const [movies, setMovies] = useState(null)
+  const [loadingSearch, setLoadingSearch] = useState(false)
   const [loading, setLoading] = useState(false)
   const debouncedSearchTerm = useDebounce(search, 2000);
   const location = useLocation()
@@ -26,7 +27,7 @@ const AdminMovieEpisode = () => {
 
   const searchMovie = (el) => {
     if(el.length > 0){
-        setLoading(true)
+      setLoadingSearch(true)
     }
     setSearch(el)
   }
@@ -46,13 +47,13 @@ const AdminMovieEpisode = () => {
         setMovies(response.mes)
         setTotalPage(Math.ceil(response.counts/5))
     }
-    setLoading(false)
+    setLoadingSearch(false)
   }
 
   useEffect(()=>{
     if(debouncedSearchTerm?.length > 0){
       fetchSearch(debouncedSearchTerm)
-      setLoading(false)
+      setLoadingSearch(false)
     }else{
       fetchData()
     }
@@ -60,15 +61,17 @@ const AdminMovieEpisode = () => {
 
 const fetchData = async(search) => {
   if(search){
-    setLoading(true)
+    setLoadingSearch(true)
     const response = await apiAllMovieEpisode({page: Number(defaultPageNumber), slug: search})
-    setLoading(false)
+    setLoadingSearch(false)
     if(response.success){
       setMovies(response.mes)
       setTotalPage(Math.ceil(response.counts/5))
     }
   }else{
+    setLoading(true)
     const response = await apiAllMovieEpisode({page: Number(defaultPageNumber)})
+    setLoading(false)
     if(response.success){
       setMovies(response.mes)
       setTotalPage(Math.ceil(response.counts/5))
@@ -135,7 +138,7 @@ useEffect(() => {
             className='bg-[#212020] p-4 h-[40px] w-[300px] outline-none rounded-lg rounded-r-none text-[#cbcbcb]' 
             placeholder='Tìm kiếm...'/>
             <button className='bg-[#212020] h-[40px] rounded-r-lg flex justify-center items-center p-2'>
-              {loading ? <BeatLoader color="#36d7b7" size={5}/> :<CiSearch color='white' size={23}/>}
+              {loadingSearch ? <BeatLoader color="#36d7b7" size={5}/> :<CiSearch color='white' size={23}/>}
             </button>
           </div>
         </div>
@@ -149,7 +152,7 @@ useEffect(() => {
               <span className='w-[20%]'>Actions</span>
             </div>
             {movies?.map((el, index)=>(
-              <div className='flex gap-2 border-b border-gray-700 border-opacity-50 pb-2'>
+              <div key={el._id} className='flex gap-2 border-b border-gray-700 border-opacity-50 pb-2'>
                 <span className='w-[5%] flex items-center justify-center'>{defaultPageNumber > 1 ? (defaultPageNumber-1)*5 + index + 1 : index + 1}</span>
                 <span className='w-[5%]'>
                   <img src={el.mid?.imageThumbnail} alt='img'/>

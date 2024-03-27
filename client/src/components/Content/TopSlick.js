@@ -44,7 +44,7 @@ const TopSlick = ({data}) => {
         const date = new Date(el.date)
         const year = date.getFullYear()
         return(
-          <div onMouseDown={() => handleOnMouseDown(el)} className='relative hover-effect'>
+          <div key={el._id} onMouseDown={() => handleOnMouseDown(el)} className='relative hover-effect'>
             <img className='px-3 cursor-pointer' src={el.imageOther} alt='img'/>      
             <span className='text-white absolute bottom-5 left-5 font-semibold'>{el.name}</span>
             <span className='text-white absolute bottom-2 left-5 text-xs'>{year}</span>

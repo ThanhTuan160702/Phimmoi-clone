@@ -153,7 +153,7 @@ const Home = () => {
         </div>
         <div>
           {searchMovies?.map((el)=>(
-            <div className='p-3 border-b border-gray-700 border-opacity-50 flex gap-5 hover:bg-gray-900'>
+            <div key={el._id} className='p-3 border-b border-gray-700 border-opacity-50 flex gap-5 hover:bg-gray-900'>
             <img src={el.imageThumbnail} alt='img' className='w-[130px]'/>
             <div className='flex-col gap-3'>
               <h1 onClick={() => navigate(`/${formatSlug(el.movieSingleOrSeries)}/${formatSlug(el.name)}`)} className='text-[#cbcbcb] text-base cursor-pointer'>{el.name}</h1>

@@ -165,7 +165,7 @@ useEffect(() => {
               <span className='w-[20%]'>Actions</span>
             </div>
             {movies?.map((el, index)=>(
-              <div className='flex gap-2 border-b border-gray-700 border-opacity-50 pb-2'>
+              <div key={el._id} className='flex gap-2 border-b border-gray-700 border-opacity-50 pb-2'>
                 <span className='w-[5%] flex items-center justify-center'>{defaultPageNumber > 1 ? (defaultPageNumber-1)*5 + index + 1 : index + 1}</span>
                 <span className='w-[5%]'>
                   <img src={el.imageThumbnail} alt='img'/>

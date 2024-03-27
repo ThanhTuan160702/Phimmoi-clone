@@ -18,7 +18,7 @@ const Search = ({search, data}) => {
   return (
     <div className='w-[360px] absolute right-[128px] z-50 bg-opacity'>
         {data?.map((el)=> (
-          <div className='p-3 border-b border-gray-700 border-opacity-50 flex gap-3 hover:bg-gray-900'>
+          <div key={el._id} className='p-3 border-b border-gray-700 border-opacity-50 flex gap-3 hover:bg-gray-900'>
             <img src={el.imageThumbnail} alt='img' className='w-[55px]'/>
             <div className='flex gap-1 justify-center'>
               <h1 onClick={() => navigate(`/${formatSlug(el.movieSingleOrSeries)}/${formatSlug(el.name)}`)} className='text-white text-sm cursor-pointer'>{el.name}</h1>

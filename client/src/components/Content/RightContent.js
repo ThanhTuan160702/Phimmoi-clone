@@ -51,7 +51,7 @@ const RightContent = () => {
         <span className='absolute text-white top-[95px] left-[5px] text-xs'>2024</span>
       </div>
       {movies?.map(el => (
-        <div onClick={() => navigate(`/${formatSlug(el.movieSingleOrSeries)}/${formatSlug(el.name)}`)} key={el.id} className='flex bg-[#0e0e0e] hover:bg-black cursor-pointer mb-3'>
+        <div onClick={() => navigate(`/${formatSlug(el.movieSingleOrSeries)}/${formatSlug(el.name)}`)} key={el._id} className='flex bg-[#0e0e0e] hover:bg-black cursor-pointer mb-3'>
           <div>
             <img src={el.imageThumbnail} alt='image2' className='h-[110px] w-[85px]'/>
           </div>
